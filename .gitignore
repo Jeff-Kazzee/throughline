@@ -1,0 +1,42 @@
+# Private operator context
+USER.md
+MEMORY.md
+memory/*.md
+!memory/README.md
+.throughline/private/
+
+# Local caches and generated indexes
+.agent-cache/
+.throughline/cache/
+.throughline/indexes/
+
+# Private planning and unpublished work
+docs/private/
+docs/planning/
+site/
+website/
+planning/
+private/
+*.private.md
+*.draft.md
+
+# Secrets and local env
+.env
+.env.*
+!.env.example
+*.secret.*
+*.local.md
+
+# Common dependency/build folders
+node_modules/
+.venv/
+dist/
+build/
+.next/
+coverage/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

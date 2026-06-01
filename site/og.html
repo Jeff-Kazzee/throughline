@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Throughline OG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;900&family=Geist+Mono:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 1200px; height: 630px; overflow: hidden; }
+    body {
+      position: relative;
+      background: oklch(0.16 0.012 250);
+      color: oklch(0.95 0.008 250);
+      font-family: 'Schibsted Grotesk', sans-serif;
+      padding: 72px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .mark { display: flex; align-items: center; gap: 14px; font-weight: 500; font-size: 26px; letter-spacing: -0.01em; }
+    .mark__glyph { width: 40px; height: 14px; position: relative; }
+    .mark__glyph::before { content:''; position:absolute; left:0; top:50%; transform:translateY(-50%); width:30px; height:2.4px; background: oklch(0.70 0.012 250); border-radius:2px; }
+    .mark__glyph::after { content:''; position:absolute; right:0; top:50%; transform:translateY(-50%); width:11px; height:11px; border-radius:50%; background: oklch(0.80 0.150 65); }
+    .headline { font-weight: 900; font-size: 158px; line-height: 0.9; letter-spacing: -0.04em; }
+    .tagline { font-family: 'Geist Mono', monospace; font-size: 23px; letter-spacing: 0.02em; color: oklch(0.70 0.012 250); max-width: 760px; line-height: 1.4; }
+    .foot { display: flex; align-items: center; gap: 16px; font-family: 'Geist Mono', monospace; font-size: 18px; letter-spacing: 0.14em; text-transform: lowercase; color: oklch(0.52 0.012 250); }
+    .foot__dot { width: 7px; height: 7px; border-radius: 50%; background: oklch(0.80 0.150 65); }
+    /* The thread: a drawn ember line sweeping across the right side */
+    svg.thread { position: absolute; inset: 0; width: 1200px; height: 630px; }
+    .thread path { fill: none; stroke: oklch(0.80 0.150 65); stroke-width: 3; stroke-linecap: round; filter: drop-shadow(0 0 7px oklch(0.80 0.150 65 / 0.6)); }
+    .thread circle { fill: oklch(0.80 0.150 65); }
+    .content { position: relative; z-index: 2; }
+  </style>
+</head>
+<body>
+  <svg class="thread" viewBox="0 0 1200 630">
+    <path d="M 1140 70 C 980 180 1080 300 980 360 C 900 410 1010 470 1180 540" />
+    <circle cx="1140" cy="70" r="8" />
+  </svg>
+
+  <div class="mark content"><span class="mark__glyph"></span><span>Throughline</span></div>
+
+  <div class="content">
+    <h1 class="headline">Keep the<br/>thread.</h1>
+    <p class="tagline" style="margin-top: 28px;">The Agent OS for keeping AI work visible, grounded, and alive.</p>
+  </div>
+
+  <div class="foot content"><span class="foot__dot"></span><span>ask · retrieve · act · verify · learn · update</span></div>
+</body>
+</html>

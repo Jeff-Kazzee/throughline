@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Throughline · Keep the thread.</title>
+  <meta name="description" content="Throughline is the Agent OS for keeping AI work visible, grounded, and alive. It holds your intent, sources, state, and decisions across every session, so your agent never loses the thread." />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Throughline — Keep the thread." />
+  <meta property="og:description" content="The Agent OS for keeping AI work visible, grounded, and alive. Intent, sources, state, and decisions, carried across every session." />
+  <meta property="og:url" content="https://jeff-kazzee.github.io/throughline/" />
+  <meta property="og:image" content="https://jeff-kazzee.github.io/throughline/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Throughline — Keep the thread." />
+  <meta name="twitter:description" content="The Agent OS for keeping AI work visible, grounded, and alive." />
+  <meta name="twitter:image" content="https://jeff-kazzee.github.io/throughline/og.png" />
+
+  <!-- Set theme before paint to avoid a flash. Dark is the default. -->
+  <script>
+    (function () {
+      // A saved choice wins. With no saved choice we default to dark, on purpose,
+      // even if the OS prefers light: the scene is a night-time editor.
+      try {
+        var saved = localStorage.getItem('tl-theme');
+        document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Favicon: the line-mark (a stroke ending in a node). -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23232a33'/%3E%3Cline x1='6' y1='16' x2='23' y2='16' stroke='%23a9b2bd' stroke-width='2.4' stroke-linecap='round'/%3E%3Ccircle cx='24' cy='16' r='3.6' fill='%23f0a23c'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;900&family=Hanken+Grotesk:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Atmospheric grain. Near invisible. Kills banding on the dark field; reads as paper fiber in light. -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- THE LINE. Built first, spans the whole document, routed through the section nodes by JS. -->
+  <div class="trace-layer" aria-hidden="true">
+    <svg id="trace" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path id="trace-fork" class="trace-fork" fill="none" />
+      <path id="trace-line" class="trace-line" fill="none" />
+    </svg>
+    <div id="trace-head" class="trace-head"></div>
+  </div>
+
+  <header class="topbar">
+    <a class="wordmark" href="#top" aria-label="Throughline, home">
+      <span class="wordmark__mark" aria-hidden="true"></span>
+      <span class="wordmark__name">Throughline</span>
+    </a>
+    <nav class="topbar__nav">
+      <a class="ghost-link" href="https://github.com/Jeff-Kazzee/throughline" target="_blank" rel="noopener">
+        GitHub <span aria-hidden="true">↗</span>
+      </a>
+      <button id="theme-toggle" class="toggle" type="button" aria-pressed="false" aria-label="Switch to light mode">
+        <span class="toggle__track">
+          <span class="toggle__icon toggle__icon--moon" aria-hidden="true"></span>
+          <span class="toggle__icon toggle__icon--sun" aria-hidden="true"></span>
+          <span class="toggle__thumb" aria-hidden="true"></span>
+        </span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- 01 — HERO -->
+    <section class="section section--hero" id="hero">
+      <div class="wrap">
+        <p class="eyebrow">For AI work that outlives a single chat</p>
+        <h1 class="display">Keep the<br />thread.</h1>
+        <p class="lede">Throughline is the Agent OS for keeping AI work visible, grounded, and alive.</p>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="https://github.com/Jeff-Kazzee/throughline" target="_blank" rel="noopener">
+            View on GitHub <span aria-hidden="true">↗</span>
+          </a>
+          <a class="btn btn--ghost" href="#problem">See how it works</a>
+        </div>
+      </div>
+      <span class="node node--lead" data-node style="--nx: 72%; --ny: 22%;">
+        <span class="node__readout">01 / 07 · the thread</span>
+      </span>
+      <div class="scroll-cue" aria-hidden="true">
+        <span>scroll</span>
+        <span class="scroll-cue__track"><span class="scroll-cue__dot"></span></span>
+      </div>
+    </section>
+
+    <!-- 02 — PROBLEM -->
+    <section class="section section--problem" id="problem">
+      <div class="wrap wrap--narrow">
+        <p class="kicker">02 / 07 · the problem</p>
+        <h2 class="head">Agents lose the plot.</h2>
+        <p class="body body--lg">
+          Your intent, your sources, your decisions: they live inside a chat window. Close it,
+          and they are gone. The next session, or the next agent, starts from nothing.
+        </p>
+      </div>
+      <span class="node node--fray" data-node style="--nx: 22%; --ny: 76%;">
+        <span class="signal-lost" aria-hidden="true">
+          <span class="signal-lost__bars"><i></i><i></i><i></i><i></i></span>
+          <span class="signal-lost__slash"></span>
+        </span>
+        <span class="node__readout">signal lost</span>
+      </span>
+    </section>
+
+    <!-- 03 — OPERATING LOOP -->
+    <section class="section section--loop" id="loop">
+      <div class="wrap">
+        <p class="kicker">03 / 07 · the loop</p>
+        <h2 class="head">Ask. Retrieve. Act.<br />Verify. Learn. Update.</h2>
+        <p class="body body--lg body--measure">
+          Throughline runs every session through the same six steps, in the open. It starts by
+          interviewing you, so the work begins from what you actually want.
+        </p>
+      </div>
+      <ol class="loop-steps">
+        <li class="loop-step">
+          <span class="node loop-step__node" data-node></span>
+          <span class="loop-step__body">
+            <span class="loop-step__head"><span class="loop-step__name">Ask</span><span class="loop-step__desc">intent</span></span>
+            <span class="loop-step__line">It interviews you first, so the work starts from what you want, not a guess.</span>
+          </span>
+          <span class="loop-wp" data-waypoint aria-hidden="true"></span>
+        </li>
+        <li class="loop-step">
+          <span class="node loop-step__node" data-node></span>
+          <span class="loop-step__body">
+            <span class="loop-step__head"><span class="loop-step__name">Retrieve</span><span class="loop-step__desc">sources</span></span>
+            <span class="loop-step__line">It pulls the sources that matter and keeps a link back to each one.</span>
+          </span>
+          <span class="loop-wp" data-waypoint aria-hidden="true"></span>
+        </li>
+        <li class="loop-step">
+          <span class="node loop-step__node" data-node></span>
+          <span class="loop-step__body">
+            <span class="loop-step__head"><span class="loop-step__name">Act</span><span class="loop-step__desc">changes</span></span>
+            <span class="loop-step__line">It does the work where you can watch it happen, not inside a black box.</span>
+          </span>
+          <span class="loop-wp" data-waypoint aria-hidden="true"></span>
+        </li>
+        <li class="loop-step">
+          <span class="node loop-step__node node--check" data-node></span>
+          <span class="loop-step__body">
+            <span class="loop-step__head"><span class="loop-step__name">Verify</span><span class="loop-step__desc">checks</span></span>
+            <span class="loop-step__line">Quality gates run before any work is allowed to count as done.</span>
+          </span>
+          <span class="loop-wp" data-waypoint aria-hidden="true"></span>
+        </li>
+        <li class="loop-step">
+          <span class="node loop-step__node" data-node></span>
+          <span class="loop-step__body">
+            <span class="loop-step__head"><span class="loop-step__name">Learn</span><span class="loop-step__desc">notes</span></span>
+            <span class="loop-step__line">It records what changed, and why, so the lesson is not lost next time.</span>
+          </span>
+          <span class="loop-wp" data-waypoint aria-hidden="true"></span>
+        </li>
+        <li class="loop-step">
+          <span class="node loop-step__node" data-node></span>
+          <span class="loop-step__body">
+            <span class="loop-step__head"><span class="loop-step__name">Update</span><span class="loop-step__desc">handoff</span></span>
+            <span class="loop-step__line">Every session ends with a written next step for whoever picks it up.</span>
+          </span>
+          <span class="loop-wp" data-waypoint aria-hidden="true"></span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 04 — SYSTEM LAYERS -->
+    <section class="section section--layers" id="layers">
+      <div class="wrap">
+        <p class="kicker">04 / 07 · what it keeps</p>
+        <h2 class="head">What it keeps between sessions.</h2>
+      </div>
+      <ol class="strata">
+        <li class="strata__row strata__row--sealed">
+          <span class="strata__name">Private memory</span>
+          <span class="strata__note">Your personal context stays in local files that never get committed or shared.</span>
+          <span class="strata__seal" aria-hidden="true">local only</span>
+        </li>
+        <li class="strata__row">
+          <span class="strata__name">Visible state</span>
+          <span class="strata__note">The current state of the project lives somewhere you can open and read.</span>
+        </li>
+        <li class="strata__row">
+          <span class="strata__name">Source trail</span>
+          <span class="strata__note">Every claim and change links back to the source it came from.</span>
+        </li>
+        <li class="strata__row">
+          <span class="strata__name">Quality gates</span>
+          <span class="strata__note">Checks the work has to pass before it is allowed to count as done.</span>
+        </li>
+        <li class="strata__row">
+          <span class="strata__name">Handoff</span>
+          <span class="strata__note">Every session ends with evidence, decisions, and a clear next step.</span>
+        </li>
+      </ol>
+      <span class="node node--flip" data-node style="--nx: 68%; --ny: 16%;"><span class="node__readout">five layers</span></span>
+    </section>
+
+    <!-- 05 — EXAMPLE RUN -->
+    <section class="section section--run" id="run">
+      <div class="wrap wrap--narrow">
+        <p class="kicker">05 / 07 · a full session</p>
+        <h2 class="head">From first interview<br />to day-end update.</h2>
+      </div>
+      <ol class="run-log">
+        <li class="run-log__row"><span class="run-log__t">09:14</span><span class="run-log__e">Interviewed you, captured what you want</span></li>
+        <li class="run-log__row"><span class="run-log__t">10:02</span><span class="run-log__e">Pulled three sources, kept a link to each</span></li>
+        <li class="run-log__row"><span class="run-log__t">11:40</span><span class="run-log__e">Logged a decision and the reasons for it</span></li>
+        <li class="run-log__row run-log__row--gate"><span class="run-log__t">14:20</span><span class="run-log__e">Ran six quality gates, all passed</span></li>
+        <li class="run-log__row"><span class="run-log__t">16:55</span><span class="run-log__e">Wrote back what it learned this session</span></li>
+        <li class="run-log__row"><span class="run-log__t">17:30</span><span class="run-log__e">Left a handoff note for tomorrow</span></li>
+      </ol>
+      <span class="node node--flip" data-node style="--nx: 72%; --ny: 46%;"><span class="node__readout">one session</span></span>
+    </section>
+
+    <!-- 06 — ROADMAP -->
+    <section class="section section--roadmap" id="roadmap">
+      <div class="wrap wrap--narrow">
+        <p class="kicker">06 / 07 · the roadmap</p>
+        <h2 class="head">Plain files today.<br />A dashboard next.</h2>
+        <p class="body body--lg">
+          Today everything lives in plain files you can open, diff, and trust. A dashboard and
+          a search layer are coming next, built on the same foundation.
+        </p>
+        <div class="fork-legend">
+          <span class="fork-legend__item fork-legend__item--now">shipping now</span>
+          <span class="fork-legend__item fork-legend__item--later">coming next</span>
+        </div>
+      </div>
+      <span class="node node--flip" data-node data-fork style="--nx: 60%; --ny: 50%;"><span class="node__readout">now, and next</span></span>
+    </section>
+
+    <!-- 07 — FINAL CTA -->
+    <section class="section section--final" id="final">
+      <div class="wrap">
+        <p class="kicker">07 / 07 · keep the thread</p>
+        <h2 class="display display--final">Keep the thread.</h2>
+        <p class="lede">Open the repo, point your agent at it, and keep the thread on work that matters.</p>
+        <div class="cta-row">
+          <a class="btn btn--primary" href="https://github.com/Jeff-Kazzee/throughline" target="_blank" rel="noopener">
+            View on GitHub <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+      <span class="node node--exit" data-node data-exit style="--nx: 50%; --ny: 40%;"></span>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="wordmark wordmark--sm" href="#top" aria-label="Throughline, home">
+      <span class="wordmark__mark" aria-hidden="true"></span>
+      <span class="wordmark__name">Throughline</span>
+    </a>
+    <div class="footer__meta">
+      <a class="ghost-link" href="https://github.com/Jeff-Kazzee/throughline" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+      <span class="footer__rule" aria-hidden="true"></span>
+      <span class="footer__lic">MIT</span>
+    </div>
+  </footer>
+
+  <script src="trace.js"></script>
+</body>
+</html>

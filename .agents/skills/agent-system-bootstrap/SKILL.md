@@ -1,33 +1,18 @@
 ---
 name: agent-system-bootstrap
-description: Bootstrap a generic or private Throughline workspace with interview gates, private memory templates, personas, commands, hooks, retrieval, quality, trust, visible state, and source-ledger surfaces.
+description: Bootstrap a Throughline WS with interview gates, PRIV files, VS, source trail, checks, and update cadence.
 ---
 
 # Agent System Bootstrap
 
-Use this when creating or adapting a Throughline workspace.
+Use when creating/adapting TL workspace.
 
-## Workflow
+## Flow
 
-1. Read the target folder's nearest `AGENTS.md` if it exists.
-2. Identify workspace type: personal, code, content, research, product, mixed, or public template.
-3. State what is known, inferred, unknown, and needs confirmation.
-4. Ask for interview depth if unclear:
-   - low: 3 questions max
-   - medium: 5 questions max
-   - in-depth: 8 questions max
-   - grill: 10 questions max, then ask before continuing
-5. Create only the scaffold needed now.
-6. Keep public/generic files person-agnostic.
-7. Put private context in ignored files only after confirmation.
-8. Ask where visible state should live: Obsidian, another notes app, repo docs, issue tracker, dashboard, or other.
-9. Ask whether HTML updates should be daily, session-end, milestone, manual only, or disabled.
-10. Add source, retrieval, quality, trust, persona, command, and hook surfaces.
-11. Verify paths, privacy, and public-safety boundaries.
-
-## Personalization Rule
-
-If the agent already knows a low-risk fact, it may draft it for confirmation.
+1. Read nearest `AGENTS.md`.
+2. Read `THROUGHLINE.md` if present.
+3. Classify WS: personal, code, content, research, product, mixed, public template.
+4. State:
 
 ```md
 I think I know:
@@ -36,39 +21,30 @@ I do not know:
 Please confirm or correct:
 ```
 
-Never guess secrets, private relationships, client data, or sensitive preferences.
+5. Pick depth: low 3q, medium 5q default, in-depth 8q, grill 10q then Gate.
+6. Ask WS purpose, PRIV boundary, VS target, update cadence, teach/do, approval gates.
+7. Scaffold only needed files.
+8. Keep public FW generic.
+9. Create PRIV only after confirmation.
+10. If work spans decisions/checks, create or update run log.
+11. Verify paths, privacy, public-safety boundary.
 
-## Public Template Rule
+Never guess secrets, client data, private relationships, credentials, or sensitive prefs.
 
-Public files may include:
+## Boundary
 
-- generic folder structure
-- source crediting pattern
-- persona contracts
-- command specs
-- hook specs
-- retrieval/query/update model
-- quality gates
-- visible-state and HTML-update patterns
+Public may include generic method, roles, commands, hook specs, retrieval/query/update model, gates, VS/update templates.
 
-Public files must not include:
+Public must not include private names, memories, secrets, client data, machine paths, or project facts as universal rules.
 
-- private names
-- personal memories
-- secrets
-- client data
-- machine-specific absolute paths
-- project-specific facts presented as universal rules
+## Report
 
-## Verification
-
-Report:
-
-- files created or changed
+- files changed
 - what stayed private
-- what is safe for public template use
-- questions still open
-- visible-state and HTML-update preferences
-- hooks/commands created as specs versus active automation
+- public-safe items
+- open questions
+- VS/update prefs
+- checks run
+- run log/update artifact, if used
 
-Do not install dependencies, initialize git, push public, or enable active hooks unless the user explicitly approves.
+Do not install deps, init git, push public, or enable active hooks without user approval.

@@ -1,33 +1,21 @@
-# User Context
+# USER
 
-This file is private by default. Copy it to `USER.md` and fill it only with confirmed user context.
+Private. Do not commit.
 
-## Identity
+Name/callsign:
 
-Preferred name:
-Pronouns:
-Timezone:
+Work:
 
-## Work
+Teach vs do:
 
-Primary work types:
-Current projects:
-Important folders:
-Important tools:
+Ask before:
 
-## Collaboration Preferences
+Never public:
 
-Teaching depth:
-Default interview depth:
-When to pause:
-When to make assumptions:
+Tools/folders:
 
-## Privacy
+VS target:
 
-Never publish:
-Never index:
-Ask before sharing:
+Update cadence:
 
-## Notes
-
-Add only confirmed facts. Mark uncertain context as `needs confirmation`.
+Notes:

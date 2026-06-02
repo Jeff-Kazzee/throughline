@@ -1,30 +1,17 @@
-# Memory
+# MEMORY
 
-This file is private by default. Copy it to `MEMORY.md` and store durable, confirmed facts that help future sessions.
+Private. Do not commit.
 
-## Current Operating Facts
+Focus:
 
-- 
+Prefs:
 
-## Preferences
+Boundaries:
 
-- 
+Decisions:
 
-## Project Map
+Lessons:
 
-- 
+Open loops:
 
-## Reusable Lessons
-
-- 
-
-## Open Questions
-
-- 
-
-## Memory Rules
-
-- Prefer durable facts over transcripts.
-- Mark stale or uncertain facts.
-- Keep private memory out of public docs.
-- Promote reusable lessons into public docs only after review.
+Superseded:
